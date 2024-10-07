@@ -1,0 +1,29 @@
+<template>
+    <template lwc:if={displayGroups}>
+        <div data-groups={groups}>
+            <template for:each={groupsData} for:item="group" for:index="gindex">
+            
+                    <lightning-button-group class='' key={groups.label}>
+
+                        <template for:each={group.buttons} for:item="button" for:index="bindex">
+                            <lightning-button 
+                                key={button.label}
+                                label={button.label}
+                                is-active={button.isActive}
+                                onclick={handleButtonClick}
+                                class={button.class}
+                                variant={button.currentVariant}
+                                icon-name={button.iconName}
+                                index={bindex}
+                                group-index={gindex}
+                                group-label={group.label}
+                            > 
+                            </lightning-button>
+                        </template>
+                                
+                    </lightning-button-group>
+
+            </template>
+        </div>
+    </template>
+</template>
