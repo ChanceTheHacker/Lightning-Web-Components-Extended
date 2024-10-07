@@ -15,7 +15,7 @@ export default class MultiSelectButtonGroup extends LightningElement {
         const button = group.buttons[index];
         const isAllButton = button.isAllButton;
         button.isActive = !isActive;
-        button.currentVariant = button.isActive ? button.activeVariant : button.defaultVariant;
+        button.currentVariant = button.isActive ? button.activeVariant : button.inactiveVariant;
 
         const shouldButtonsSwap = button.isActive && hasAllButton;
         const activeButtonLabels = [];
@@ -25,7 +25,7 @@ export default class MultiSelectButtonGroup extends LightningElement {
 
             if (shouldButtonsSwap && btn.isAllButton !== isAllButton){
                 btn.isActive = !button.isActive;
-                btn.currentVariant = btn.isActive ? btn.activeVariant : btn.defaultVariant;
+                btn.currentVariant = btn.isActive ? btn.activeVariant : btn.inactiveVariant;
             }
 
             btn.isActive ? activeButtonLabels.push(btn.label) : inactiveButtonLabels.push(btn.label);
@@ -59,9 +59,9 @@ export default class MultiSelectButtonGroup extends LightningElement {
                         newButton.isAllButton = button.isAllButton ? true : false;
                         newGroup.hasAllButton = newButton.isAllButton ? true : newGroup.hasAllButton;
                         newButton.isActive = button.isActive ? true : false;
-                        newButton.defaultVariant = button.defaultVariant ? button.defaultVariant : group.defaultVariant;
+                        newButton.inactiveVariant = button.inactiveVariant ? button.inactiveVariant : group.inactiveVariant;
                         newButton.activeVariant = button.activeVariant ? button.activeVariant : group.activeVariant;
-                        newButton.currentVariant = button.isActive ? button.activeVariant : button.defaultVariant;
+                        newButton.currentVariant = button.isActive ? button.activeVariant : button.inactiveVariant;
                         newButton.class = button.class ? button.class : '';
                         newButton.iconName = button.iconName;
                         newGroup.buttons.push(newButton);
