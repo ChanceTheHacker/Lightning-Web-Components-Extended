@@ -31,6 +31,7 @@ export default class MultiSelectButtonGroup extends LightningElement {
             }
 
             btn.isActive ? activeButtonLabels.push(btn.label) : inactiveButtonLabels.push(btn.label);
+            btn.isActive ? activeButtonValues.push(btn.value) : inactiveButtonValues.push(btn.value);
         }
 
         this.dispatchEvent(new CustomEvent('select', {
@@ -63,7 +64,7 @@ export default class MultiSelectButtonGroup extends LightningElement {
                         const newButton = {};
                         newButton.groupLabel = group.label;
                         newButton.label = button.label;
-                        newButton.value = button.value;
+                        newButton.value = button.value ? button.value : button.label;
                         newButton.isAllButton = button.isAllButton ? true : false;
                         newGroup.hasAllButton = newButton.isAllButton ? true : newGroup.hasAllButton;
                         newButton.isActive = button.isActive ? true : false;
