@@ -32,6 +32,7 @@ const OBJECT = {
   buttons: [
     {
       label: 'All',
+      value: 'all',
       isAllButton: true,
       isActive: true,
       activeVariant: 'destructive',
@@ -39,6 +40,7 @@ const OBJECT = {
     },
     {
       label: 'Account',
+      value: 'account',
       isActive: true,
       activeVariant: 'success',
       iconName: 'utility:company'
