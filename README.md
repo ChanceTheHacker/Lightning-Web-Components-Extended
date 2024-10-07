@@ -2,7 +2,7 @@
 A collection of custom Salesforce Lightning Web Components that I use to make development easier and faster.
 
 Multi Button Select
-accepts an array of button groups. can be a single group but must be within an array. Each group must have a label and a buttons property. the buttons property must be an array of available buttons. optional properties are 'defaultVariant' and 'activeVariant'. default variant is the variant used when the button is not selected. active variant is the variant used when the button is selected.
+accepts an array of button groups. can be a single group but must be within an array. Each group must have a label and a buttons property. the buttons property must be an array of available buttons. optional properties are 'inactiveVariant' and 'activeVariant'. inactive variant is the variant used when the button is not selected. active variant is the variant used when the button is selected.
 
 buttons must have a label property. 
 optional properties:
@@ -10,7 +10,7 @@ isAllButton - when this button is active, all other 'non-isAllButton' buttons ar
 isActive - is this button active
 class - a class to give the button
 activeVariant - the variant for the button when active. overrides group settings
-defaultVariant - the variant when button is inactive. overrides group settings
+inactiveVariant - the variant when button is inactive. overrides group settings
 iconName - gives the button an icon
 
 to communicate with the parent this sends a custom event
@@ -25,7 +25,7 @@ examples-
 
 const OBJECT = {
   label: 'object',
-  defaultVariant: 'brand-outline',
+  inactiveVariant: 'brand-outline',
   activeVariant: 'Success',
   buttons: [
     {
@@ -44,7 +44,7 @@ const OBJECT = {
     {
       label: 'Contact',
       isActive: false,
-      defaultVariant: 'destructive-text',
+      inactiveVariant: 'destructive-text',
       iconName: 'utility:contact'
     },
     {
